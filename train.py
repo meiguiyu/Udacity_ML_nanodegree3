@@ -31,6 +31,8 @@ def main():
  
     data = Dataset.Tabular.from_delimited_files(path=url)
     df = data.to_pandas_dataframe()
+    df.replace([np.inf, -np.inf], np.nan, inplace=True)
+    df.fillna(0, inplace=True)
     y = df["Churn"]
     x = df.drop(["Churn"], axis =1)
 
