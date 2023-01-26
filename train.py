@@ -27,13 +27,12 @@ def main():
 
     # TODO: Create TabularDataset using TabularDatasetFactory
     # Data is located at:
-    # "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
-    url =  "https://archive.ics.uci.edu/ml/machine-learning-databases/00639/Maternal Health Risk Data Set.csv"
+    url =  "https://archive.ics.uci.edu/ml/machine-learning-databases/00592/Churn_Dateset.csv"
  
     data = Dataset.Tabular.from_delimited_files(path=url)
     df = data.to_pandas_dataframe()
-    y = df["RiskLevel"]
-    x = df.drop(["RiskLevel"], axis =1)
+    y = df["Churn"]
+    x = df.drop(["Churn"], axis =1)
 
     x_train, x_test, y_train, y_test = train_test_split(x,y, test_size=0.3, random_state=0)
 
