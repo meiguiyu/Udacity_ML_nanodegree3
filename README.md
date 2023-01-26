@@ -26,10 +26,10 @@ to predict is a woman is in high risk of getting maternal mortality.
 *TODO*: Explain how you are accessing the data in your workspace.
 The data set has been uploaded to the workspace and registered used key "Churn". 
 This data can be accessed using below code.<br/><br/>
-*Figure 1: Access Data*
+*Figure 1-1: Access Data*
 ![plot1](./images/0-1.PNG)
 <br/><br/>
-*Figure 1: Access Data*
+*Figure 1-2: Access Data*
 ![plot1](./images/0-2.PNG)
 <br/><br/>
 
@@ -57,20 +57,20 @@ Below figure shows the the run details of the automl model.  <br/><br/>
 ![plot4](./images/2-3.PNG)
 <br/><br/>
 Below figure shows the best automl model.  <br/><br/>
-*Figure 5: Best automl model*
+*Figure 5-1: Best automl model*
 ![plot5](./images/2-4.PNG)
 <br/><br/>
 Below figure shows the the run details of the automl model.  <br/><br/>
-*Figure 6: Best automl model*
+*Figure 5-2: Best automl model*
 ![plot4](./images/2-5.PNG)
 <br/><br/>
 Below figure shows the parameters of the best automl model.  <br/><br/>
-*Figure 7: Best automl model parameters*
-![plot6](./images/6.PNG)
+*Figure 6: Best automl model parameters*
+![plot6](./images/2-6.PNG)
 <br/><br/>
 
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
+*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search.<br/><br/>
 A Logistic Regression was used for this classification problem. 
 Parameters C and max_iter are selected to be optimized. 
 The option of the hyperparameters are (0.1, 1, 5) for C and (25, 50, 100, 200, 500) for max_iter. 
@@ -124,4 +124,4 @@ The best model (generated from automl) is deployed using ACI webservice. See bel
 - Demo of the deployed  model
 - Demo of a sample request sent to the endpoint and its response
 
-Link: <a href="https://www.youtube.com/watch?v=ukJf9IzUs34" target="_blank">Screencast video</a>
+Link: <a href="https://www.youtube.com/watch?v=YXz6kT5-pSE" target="_blank">Screencast video</a>
