@@ -19,8 +19,7 @@ Data can be download using this url: https://archive.ics.uci.edu/ml/machine-lear
 
 ### Task
 *TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.<br/><br/>
-I am going to build a classification model using feature age, Systolic Blood Pressure as SystolicBP, Diastolic BP as DiastolicBP, Blood Sugar as BS, Body Temperature as BodyTemp, HeartRate and RiskLevel. 
-to predict is a woman is in high risk of getting maternal mortality.
+I am going to build a classification model to predict customer churn rate using the churn data set.
 
 ### Access
 *TODO*: Explain how you are accessing the data in your workspace.<br/><br/>
