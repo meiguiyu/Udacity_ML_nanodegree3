@@ -2,14 +2,14 @@
 
 # Your Project Title Here
 
-*TODO:* Write a short introduction to your project.
+*TODO:* Write a short introduction to your project.<br/><br/>
 This project aims to predict churn rate for a customer. Both autoML and hyperparamter tuning will be used
 to train this data set. Only the model with better accuracy will be deployed. 
 
 ## Dataset
 
 ### Overview
-*TODO*: Explain about the data you are using and where you got it from.
+*TODO*: Explain about the data you are using and where you got it from.<br/><br/>
 This dataset is randomly collected from an Iranian telecom companyâ€™s database over a period of 12 months. A total of 3150 rows of data, each representing a customer, bear information for 13 columns. The attributes that are in this dataset
 are call failures, frequency of SMS, number of complaints, number of distinct calls, subscription length, age group, the charge amount, type of service, seconds of use, status, frequency of use, and Customer Value.
 
@@ -18,12 +18,12 @@ All of the attributes except for attribute churn is the aggregated data of the f
 Data can be download using this url: https://archive.ics.uci.edu/ml/machine-learning-databases/00592/Churn_Dateset.csv.
 
 ### Task
-*TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.
+*TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.<br/><br/>
 I am going to build a classification model using feature age, Systolic Blood Pressure as SystolicBP, Diastolic BP as DiastolicBP, Blood Sugar as BS, Body Temperature as BodyTemp, HeartRate and RiskLevel. 
 to predict is a woman is in high risk of getting maternal mortality.
 
 ### Access
-*TODO*: Explain how you are accessing the data in your workspace.
+*TODO*: Explain how you are accessing the data in your workspace.<br/><br/>
 The data set has been uploaded to the workspace and registered used key "Churn". 
 This data can be accessed using below code.<br/><br/>
 *Figure 1-1: Access Data*
@@ -34,7 +34,7 @@ This data can be accessed using below code.<br/><br/>
 <br/><br/>
 
 ## Automated ML
-*TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
+*TODO*: Give an overview of the `automl` settings and configuration you used for this experiment<br/><br/>
 The automl settings and configuraiton can be found in below figure.  <br/><br/>
 *Figure 2: Automl settings*
 ![plot2](./images/2-1.PNG)
@@ -43,7 +43,7 @@ The automl settings and configuraiton can be found in below figure.  <br/><br/>
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.<br/><br/>
 
 The best automodel is a voting ensemble model with an accuracy of 0.9581. 
 We can add a k-fold cross validation in the automl settings to improve the model accuracy.
@@ -82,7 +82,7 @@ The option of the hyperparameters are (0.1, 1, 5) for C and (25, 50, 100, 200, 5
 ### Results
 *TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.<br/><br/>
 The best model has an accuracy of 0.8670886 with C as 0.1 and max_iter as 500 the best. A wider range of C and max_iter could be used to improve the model accuracy.
 <br/><br/>
 *Figure 8: Hyperparameter tuning run details*
@@ -102,7 +102,7 @@ The best model has an accuracy of 0.8670886 with C as 0.1 and max_iter as 500 th
 <br/><br/>
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.<br/><br/>
 The best model (generated from automl) is deployed using ACI webservice. See below for the ACI configuration settings and the status of endpoint deployed.
 <br/><br/>
 *Figure 13: Code to deploy the model*
