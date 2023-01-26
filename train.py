@@ -9,30 +9,7 @@ from sklearn.preprocessing import OneHotEncoder
 import pandas as pd
 from azureml.core.run import Run
 from azureml.data.dataset_factory import TabularDatasetFactory
-
-# Create TabularDataset using TabularDatasetFactory
-durl = "https://archive.ics.uci.edu/ml/machine-learning-databases/00639/Maternal Health Risk Data Set.csv"
-
-ds = TabularDatasetFactory.from_delimited_files(path=durl)
-
-data_df = ds.to_pandas_dataframe()
-
-# Preview of the first five rows
-data_df.head()
-
-# Explore data
-data_df.describe()
-
-
-y_df = data_df.pop("RiskLevel")
-
-x_df = data_df
-
-# Split data into train and test sets.
-x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=42)
-
-run = Run.get_context()
-
+from azureml.core import Workspace, Dataset
 
 def main():
     # Add arguments to script
@@ -43,17 +20,29 @@ def main():
 
     args = parser.parse_args()
 
+    run = Run.get_context()
+
     run.log("Regularization Strength:", np.float(args.C))
     run.log("Max iterations:", np.int(args.max_iter))
+
+    # TODO: Create TabularDataset using TabularDatasetFactory
+    # Data is located at:
+    # "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
+    url =  "https://raw.githubusercontent.com/gittrain123/nd00333-capstone/master/starter_file/forest_fire_cleaned.csv"
+ 
+    data = Dataset.Tabular.from_delimited_files(path=url)
+    df = data.to_pandas_dataframe()
+    y = df["Classes_mapped"]
+    x = df.drop(["Classes_mapped"], axis =1)
+
+    x_train, x_test, y_train, y_test = train_test_split(x,y, test_size=0.3, random_state=0)
 
     model = LogisticRegression(C=args.C, max_iter=args.max_iter).fit(x_train, y_train)
 
     accuracy = model.score(x_test, y_test)
+    joblib.dump(value=model,filename='outputs/model.pkl')
+    run.upload_file(name='model.pkl', path_or_stream='outputs/model.pkl')
     run.log("Accuracy", np.float(accuracy))
-
-    os.makedirs('outputs', exist_ok=True)
-
-    joblib.dump(value=model, filename='outputs/model.pkl')
 
 if __name__ == '__main__':
     main()
